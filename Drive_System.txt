@@ -22,8 +22,19 @@ driveCommandAuton
   speed = m/s
   turning = radians
   
- operator interfaces are Joystick and Auton 
- subsystem is drive
+  operator interfaces are Joystick and Auton 
+  subsystem is drive
+  
+  step 6
+  let forwardReverseSpeed  = driverControllerAxisFrontAndBack 
+  let LeftRightSpeed = 0
+  let Turning/RotationSpeed = driverControllerAxisRotating
+  If ( driveCommandAuton = false ) then 
+    driveCommandJoystick ( forwardReverseSpeed, LeftRightSpeed, Turning/RotationSpeed )
+   else 
+   //driveCommandAuton = true
+   driveCommandAuton ( distance, speed, turning )
+  
  
   
   
