@@ -7,3 +7,23 @@ Step 2 I/O list
   Output: drive motors
 Step 3
  1-7-19 reviewed with SAD and FAD Katie, Sydney, & Mr.Gaines 
+step 4
+  completed
+step 5
+driveCommandJoystick
+  drive backwards at joystick speed = -1;
+  rest= 0;
+  drive forward at joystick speed=1;
+  drive left at joystick speed= -1;
+  rest= 0;
+  drive right at  joystick speed= 1;
+driveCommandAuton 
+  distance =  m
+  speed = m/s
+  turning = radians
+  
+ operator interfaces are Joystick and Auton 
+ subsystem is drive
+ 
+  
+  
