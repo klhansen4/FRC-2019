@@ -1,0 +1,15 @@
+CAN ID 1 = front left motor (Primary Drive) , Chassis SRX Mag Encoder, left
+CAN ID 2 = front right motor (Primary Drive) , Chassis SRX Mag Encoder, right
+CAN ID 3 = rear left motor (Primary Drive)
+CAN ID 4 = rear right motor (Primary Drive)
+CAN ID 5 = middle left motor (Secondary Drive)
+CAN ID 6 = middle right motor (Secondary Drive)
+
+Driver Controller 
+Axis 
+  0 
+  1 drive forward and back
+  2
+  3
+  4 turn left and right 
+  

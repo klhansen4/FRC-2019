@@ -1,0 +1,9 @@
+Step 1 system description:
+  The drive subsystem uses the drive motors and the input of the driver joystick to drive the robot forward, backward, left, and right.  
+  It includes sensors for the different autoassists. 
+  It can also use the encoders to drive certain distances
+Step 2 I/O list
+  Inputs: joystick to drive, encoders
+  Output: drive motors
+Step 3
+ 1-7-19 reviewed with SAD and FAD Katie, Sydney, & Mr.Gaines 
