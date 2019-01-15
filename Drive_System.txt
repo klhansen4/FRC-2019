@@ -35,6 +35,10 @@ driveCommandAuton
    //driveCommandAuton = true
    driveCommandAuton ( distance, speed, turning )
   
+  step 7
+  presented psuedo code to Katie and Sydney
+
+  step 8
  
   
   
