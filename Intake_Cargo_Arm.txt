@@ -1,0 +1,14 @@
+Intake
+	Cargo - ground retrival
+	Two motors - 
+		one to pull in cargo - free spinning 
+		one to pivot arm up and down - needs encoder to stop at specific angles
+
+	
+
+	Step 1
+		This system has a spinning set of wheels with one motor. 
+		It also has a motor that pivots the arm. 
+		This system has an encoder to determine arm angle. 
+		The arm is able to assist in climb. 
+		It can pull in cargo. 

@@ -1,0 +1,12 @@
+Intake / Place
+	Hatch (I/P)
+	Cargo (just place) - two seat motors on the same shaft to pivot - both have encoders
+
+Suction to grab cargo and hatches
+	Solenoid to direct vacuum to cargo
+	Solenoid to direct vacuum to hatch
+
+	Step 1: Super Suction Arm (SSA)
+	2 seat motors with enconders cause the arm to pivot up & down to position placement of the hatch / cargo
+	the solenoid will direct the vacuum to 3 suction cups for the hatch or 1 large
+	suction cup for the cargo.
