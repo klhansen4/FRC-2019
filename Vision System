@@ -10,9 +10,8 @@ Step 1
     A. The adjustment of the robot will allow the driver to be centered for placement of cargo and hatch cover.
   
 Step 2
-Input:  usb camera, joystick,roborio
-Output: reflecting tape, action of auto-assist, screen ( locks on the target, modify the camera feed with graphics), sensor light
-
+Input:  usb camera, joystick,
+Output: reflecting tape, action of auto-assist, screen ( locks on the target, modify the camera feed with graphics), sensor light, roborio
 Step 3 --  completed review 
 
 Step 4
