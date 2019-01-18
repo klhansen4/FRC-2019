@@ -23,9 +23,22 @@ Step 5
 command -> autoassistAlignment
 subsystem -> Vision
 
-Step 6
-
-
+Step 6 Write Pseudocode
+Initialize USB Camera
+If autoassistButton is pressed
+then read matrix from the camera
+get contours
+Sort contours based on area
+Sort top 4 target contours based on angle
+find centroids
+let deltax = x1-x0
+if deltax <0 then
+let deltax = x0-x1
+let deltay = y1-y0
+if deltay <0 then
+let deltay = y0-y1
+let targetx = deltax + x1
+let targety = deltay + y1
 
 
  
