@@ -5,7 +5,7 @@
 /* the project.                                                               */
 /*----------------------------------------------------------------------------*/
 
-package frc.robot.subsystems.drive;
+package frc.robot.subsystems;
 
 import edu.wpi.first.wpilibj.command.Subsystem;
 
@@ -15,30 +15,36 @@ import com.ctre.phoenix.motorcontrol.SensorCollection;
 
 import edu.wpi.first.wpilibj.SpeedControllerGroup;
 import edu.wpi.first.wpilibj.drive.DifferentialDrive;
-import frc.robot.RobotMap;
 import frc.robot.commands.DriveCommandJoystick;
 import frc.robot.commands.DriveCommandAuton;
 import edu.wpi.first.wpilibj.PIDController;
 
 import edu.wpi.first.wpilibj.command.PIDSubsystem;
 import java.util.HashMap;
+import frc.robot.RobotMap;
 
 /**
  * Add your docs here.
  */
-public class drive extends Subsystem {
+public class Drive extends Subsystem {
   // Put methods for controlling this subsystem
   // here. Call these from Commands.
 
-	WPI_VictorSPX m_frontLeft = new WPI_VictorSPX(RobotMap.frontLeftMotor);
+	//WPI_TalonSRX m_frontLeft = new WPI_TalonSRX(RobotMap.frontLeftMotor);
 	WPI_VictorSPX m_midLeft = new WPI_VictorSPX(RobotMap.middleLeftMotor);
 	WPI_VictorSPX m_rearLeft = new WPI_VictorSPX(RobotMap.rearLeftMotor);
 
+	//change m_frontleft to a victor to use for last year's robot
+	WPI_VictorSPX m_frontLeft = new WPI_VictorSPX(RobotMap.frontLeftMotor);
+
 	SpeedControllerGroup m_left = new SpeedControllerGroup(m_frontLeft, m_midLeft, m_rearLeft);
 
-	WPI_VictorSPX m_frontRight = new WPI_VictorSPX(RobotMap.frontRightMotor);
+	//WPI_TalonSRX m_frontRight = new WPI_TalonSRX(RobotMap.frontRightMotor);
 	WPI_VictorSPX m_midRight = new WPI_VictorSPX(RobotMap.middleRightMotor);
 	WPI_VictorSPX m_rearRight = new WPI_VictorSPX(RobotMap.rearRightMotor);
+
+	//change m_frontright to a victor to use for last year's robot
+	WPI_VictorSPX m_frontRight = new WPI_VictorSPX(RobotMap.frontRightMotor);
 
 	SpeedControllerGroup m_right = new SpeedControllerGroup(m_frontRight, m_midRight, m_rearRight);
 
@@ -52,8 +58,8 @@ public class drive extends Subsystem {
 
 	private static HashMap<driveSide, SensorCollection> m_odometers = new HashMap<>();
 	static {
-		m_odometers.put(driveSide.Left, new WPI_TalonSRX(RobotMap.leftDriveControllerSensor).getSensorCollection());
-		m_odometers.put(driveSide.Right, new WPI_TalonSRX(RobotMap.rightDriveControllerSensor).getSensorCollection());
+		m_odometers.put(driveSide.Left, new WPI_TalonSRX(RobotMap.chassisSRXMagEncoderLeft).getSensorCollection());
+		m_odometers.put(driveSide.Right, new WPI_TalonSRX(RobotMap.chassisSRXMagEncoderRight).getSensorCollection());
   }
   
   public void periodic() {
@@ -82,5 +88,11 @@ public class drive extends Subsystem {
 		m_midLeft.setInverted(true);// motor #5
 
 
+	}
+	public void driveDirection(float FRSpeed, float turningSpeed, float LRSpeed) {
+		m_drive.arcadeDrive(FRSpeed, turningSpeed);
+	}
+	public void driveDirection(float FRSpeed, float turningSpeed) {
+		m_drive.arcadeDrive(FRSpeed, turningSpeed);
 	}
 }
