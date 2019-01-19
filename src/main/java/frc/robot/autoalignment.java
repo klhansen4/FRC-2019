@@ -1,4 +1,4 @@
-package autoalignment;
+package frc.robot;
 
 import java.io.File;
 import java.io.FileWriter;
@@ -23,7 +23,7 @@ import org.opencv.objdetect.*;
 *
 * @author GRIP
 */
-public class GripPipeline {
+public class autoalignment {
 
 	//Outputs
 	private Mat hslThresholdOutput = new Mat();

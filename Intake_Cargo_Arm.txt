@@ -7,8 +7,8 @@ Intake
 	
 
 	Step 1
-		This system has a spinning set of wheels with one motor. 
-		It also has a motor that pivots the arm. 
+		This system has a spinning set of wheels with two motors. 
+		It also has two motors   that pivots the arm. 
 		This system has an encoder to determine arm angle. 
 		The arm is able to assist in climb. 
 		It can pull in cargo. 
