@@ -10,9 +10,11 @@ package frc.robot.commands;
 import edu.wpi.first.wpilibj.command.Command;
 import frc.robot.RobotMap;
 import frc.robot.Robot;
+import frc.robot.subsystems.Drive;
 
 public class DriveCommandJoystick extends Command {
   public DriveCommandJoystick() {
+    requires(Robot.m_drive);
     // Use requires() here to declare subsystem dependencies
     // eg. requires(chassis);
   }
@@ -29,6 +31,7 @@ public class DriveCommandJoystick extends Command {
         // Read the axes of the joysticks
         double throttleJoystick = Robot.m_oi.driverController.getRawAxis(RobotMap.driverControllerAxisFrontAndBack);
         double steerJoystick = Robot.m_oi.driverController.getRawAxis(RobotMap.driverControllerAxisLeftAndRight);
+        Robot.m_drive.driveDirection((float)throttleJoystick, (float)steerJoystick);
   }
 
   // Make this return true when this Command no longer needs to run execute()
