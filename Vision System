@@ -41,6 +41,8 @@ if deltay <0 then
 let deltay = y0-y1
 let targetx = deltax + x1
 let targety = deltay + y1
+call drive subsystem
+
 
 
  
