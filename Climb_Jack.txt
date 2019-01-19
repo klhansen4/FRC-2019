@@ -1,0 +1,10 @@
+ 
+Climb jack
+	one motor with an encoder
+
+Step 1
+The Climb jack has a single motor with an encoder and rotates
+in both directions (similar to elevator code from 2018)
+
+Step 2 
+
