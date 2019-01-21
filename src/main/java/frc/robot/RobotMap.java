@@ -31,4 +31,22 @@ public class RobotMap {
   public static int driverController = 0;
   public static int operatorController = 1;
 
+  // Climb Jack System Constants
+  public static int climbJack_talon = 7;
+  public static int ClimbJackFullyRetracted = 0;
+  public static int climbJackMaxExtend = 100000000; //not really lol TODO: figure out what  this number is
+  public static int climbJackJogRetractedLimit = 0;
+  public static int climbJackJogExtendedLimit = 100000000; //not really lol TODO: figure out what  this number is
+  public static int climbJackJogExtendButton = 5;
+  public static int climbJackJogRetractButton = 6;
+  public static int climbJackFullyExtendButton = 7; //TODO: find out real button numbers 
+  public static int climbJackFullyRetractButton =  8; //TODO: find out real button numbers
+  public static int climbJackLimitSwitchExtendInput = 1;
+  public static int climbJackLimitSwitchRetractInput = 2;
+  public static double climbJackSpeed = 10.0;
+  public static int climbJackRate = 200;
+  public static int climbJackIsExtendedThreshold = 6000;
+
+
+
 }
