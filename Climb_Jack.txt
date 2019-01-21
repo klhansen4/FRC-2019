@@ -11,8 +11,8 @@ List I/O for systems
 Inputs: controller buttons/joysticks, encoder
 Outputs: motor, action of climb
 
-Step 3
-reviewed with sydney and katie
+Step 3 
+complete 
 
 Step 4
 complete
