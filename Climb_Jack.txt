@@ -7,4 +7,11 @@ The Climb jack has a single motor with an encoder and rotates
 in both directions (similar to elevator code from 2018)
 
 Step 2 
+List I/O for systems
+Inputs: controller buttons/joysticks, encoders
+Outputs: motor, action of climb
 
+Step 3
+reviewed with sydney and katie
+
+Step 4 
