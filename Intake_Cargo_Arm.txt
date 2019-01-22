@@ -14,6 +14,10 @@ Intake
 		It can pull in cargo. 
 
 	Step 2
-	List I/O for thi system
+	List I/O for this system
 	Inputs: buttons/joysticks of controller, encoders
-	Outputs: cargo arm motors, cargo intake motor spinning 
+	Outputs: cargo pivot arm motors, cargo arm intake motor
+
+	Step 3
+	
+

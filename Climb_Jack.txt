@@ -9,7 +9,7 @@ in both directions (similar to elevator code from 2018)
 Step 2 
 List I/O for systems
 Inputs: controller buttons/joysticks, encoder
-Outputs: motor, action of climb
+Outputs: climb motor, action of climb
 
 Step 3 
 complete 
