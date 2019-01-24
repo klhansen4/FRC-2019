@@ -26,9 +26,7 @@ import org.opencv.objdetect.*;
 public class VisionTargetFilter {
 
 	//Outputs
-	private Mat desaturateOutput = new Mat();
-	private Mat normalizeOutput = new Mat();
-	private Mat cvThresholdOutput = new Mat();
+	private Mat hslThresholdOutput = new Mat();
 	private ArrayList<MatOfPoint> findContoursOutput = new ArrayList<MatOfPoint>();
 	private ArrayList<MatOfPoint> convexHullsOutput = new ArrayList<MatOfPoint>();
 
@@ -40,26 +38,15 @@ public class VisionTargetFilter {
 	 * This is the primary method that runs the entire pipeline and updates the outputs.
 	 */
 	public void process(Mat source0) {
-		// Step Desaturate0:
-		Mat desaturateInput = source0;
-		desaturate(desaturateInput, desaturateOutput);
-
-		// Step Normalize0:
-		Mat normalizeInput = desaturateOutput;
-		int normalizeType = Core.NORM_INF;
-		double normalizeAlpha = 255.0;
-		double normalizeBeta = 255.0;
-		normalize(normalizeInput, normalizeType, normalizeAlpha, normalizeBeta, normalizeOutput);
-
-		// Step CV_Threshold0:
-		Mat cvThresholdSrc = normalizeOutput;
-		double cvThresholdThresh = 128.0;
-		double cvThresholdMaxval = 255.0;
-		int cvThresholdType = Imgproc.THRESH_OTSU;
-		cvThreshold(cvThresholdSrc, cvThresholdThresh, cvThresholdMaxval, cvThresholdType, cvThresholdOutput);
+		// Step HSL_Threshold0:
+		Mat hslThresholdInput = source0;
+		double[] hslThresholdHue = {53.41726618705036, 106.27986348122867};
+		double[] hslThresholdSaturation = {66.50179856115109, 255.0};
+		double[] hslThresholdLuminance = {29.81115107913669, 165.7935153583618};
+		hslThreshold(hslThresholdInput, hslThresholdHue, hslThresholdSaturation, hslThresholdLuminance, hslThresholdOutput);
 
 		// Step Find_Contours0:
-		Mat findContoursInput = cvThresholdOutput;
+		Mat findContoursInput = hslThresholdOutput;
 		boolean findContoursExternalOnly = true;
 		findContours(findContoursInput, findContoursExternalOnly, findContoursOutput);
 
@@ -70,27 +57,11 @@ public class VisionTargetFilter {
 	}
 
 	/**
-	 * This method is a generated getter for the output of a Desaturate.
-	 * @return Mat output from Desaturate.
+	 * This method is a generated getter for the output of a HSL_Threshold.
+	 * @return Mat output from HSL_Threshold.
 	 */
-	public Mat desaturateOutput() {
-		return desaturateOutput;
-	}
-
-	/**
-	 * This method is a generated getter for the output of a Normalize.
-	 * @return Mat output from Normalize.
-	 */
-	public Mat normalizeOutput() {
-		return normalizeOutput;
-	}
-
-	/**
-	 * This method is a generated getter for the output of a CV_Threshold.
-	 * @return Mat output from CV_Threshold.
-	 */
-	public Mat cvThresholdOutput() {
-		return cvThresholdOutput;
+	public Mat hslThresholdOutput() {
+		return hslThresholdOutput;
 	}
 
 	/**
@@ -111,50 +82,19 @@ public class VisionTargetFilter {
 
 
 	/**
-	 * Converts a color image into shades of grey.
-	 * @param input The image on which to perform the desaturate.
+	 * Segment an image based on hue, saturation, and luminance ranges.
+	 *
+	 * @param input The image on which to perform the HSL threshold.
+	 * @param hue The min and max hue
+	 * @param sat The min and max saturation
+	 * @param lum The min and max luminance
 	 * @param output The image in which to store the output.
 	 */
-	private void desaturate(Mat input, Mat output) {
-		switch (input.channels()) {
-			case 1:
-				// If the input is already one channel, it's already desaturated
-				input.copyTo(output);
-				break;
-			case 3:
-				Imgproc.cvtColor(input, output, Imgproc.COLOR_BGR2GRAY);
-				break;
-			case 4:
-				Imgproc.cvtColor(input, output, Imgproc.COLOR_BGRA2GRAY);
-				break;
-			default:
-				throw new IllegalArgumentException("Input to desaturate must have 1, 3, or 4 channels");
-		}
-	}
-
-	/**
-	 * Normalizes or remaps the values of pixels in an image.
-	 * @param input The image on which to perform the Normalize.
-	 * @param type The type of normalization.
-	 * @param a The minimum value.
-	 * @param b The maximum value.
-	 * @param output The image in which to store the output.
-	 */
-	private void normalize(Mat input, int type, double a, double b, Mat output) {
-		Core.normalize(input, output, a, b, type);
-	}
-
-	/**
-	 * Apply a fixed-level threshold to each array element in an image.
-	 * @param src Image to threshold.
-	 * @param threshold threshold value.
-	 * @param maxVal Maximum value for THRES_BINARY and THRES_BINARY_INV
-	 * @param type Type of threshold to appy.
-	 * @param dst output Image.
-	 */
-	private void cvThreshold(Mat src, double threshold, double maxVal, int type,
-		Mat dst) {
-		Imgproc.threshold(src, dst, threshold, maxVal, type);
+	private void hslThreshold(Mat input, double[] hue, double[] sat, double[] lum,
+		Mat out) {
+		Imgproc.cvtColor(input, out, Imgproc.COLOR_BGR2HLS);
+		Core.inRange(out, new Scalar(hue[0], lum[0], sat[0]),
+			new Scalar(hue[1], lum[1], sat[1]), out);
 	}
 
 	/**
