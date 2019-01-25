@@ -21,7 +21,11 @@ driveCommandAuton
   distance =  m
   speed = m/s
   turning = radians
-  
+  driveCommandSimple
+  driveForward = 1 
+  driveBackwards = -1
+  turnRight = 1
+  turnLeft = -1 
   operator interfaces are Joystick and Auton 
   subsystem is drive
   
