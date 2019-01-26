@@ -42,6 +42,7 @@ public class Robot extends TimedRobot {
     m_oi = new OI();
     m_drive = new Drive();
     m_climb_jack = new Climb_Jack();
+    m_hazmat_arm = new Hazmat_Arm();
 
     // chooser.addOption("My Auto", new MyAutoCommand());
     SmartDashboard.putData("Auto mode", m_chooser);
