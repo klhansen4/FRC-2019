@@ -26,9 +26,12 @@ import frc.robot.subsystems.Climb_Jack;
  */
 public class Robot extends TimedRobot {
 
-  public static OI m_oi;
-  public static Drive m_drive;
-  public static Climb_Jack m_climb_jack;
+
+  public static Drive m_drive = new Drive();
+  public static Climb_Jack m_climb_jack = new Climb_Jack();
+
+// Instantiate this last-definitely after Drive, Climb_Jack, etc. 
+  public static OI m_oi = new OI();
   Command m_autonomousCommand;
   SendableChooser<Command> m_chooser = new SendableChooser<>();
 
@@ -38,9 +41,6 @@ public class Robot extends TimedRobot {
    */
   @Override
   public void robotInit() {
-    m_oi = new OI();
-    m_drive = new Drive();
-    m_climb_jack = new Climb_Jack();
 
     // chooser.addOption("My Auto", new MyAutoCommand());
     SmartDashboard.putData("Auto mode", m_chooser);
