@@ -50,6 +50,18 @@ public class RobotMap {
 
   public final static int PID_PRIMARY = 0;
   public final static int kTimeoutMs = 30;
-// test by Juliana
+
+  //suction arm constants
+  public static int suctionArm_Talon = 8; //TODO: find the true value of these motors
+  //define solenoids here
+  public static int suctionArmStartingEncoderCount = 1000000; //TODO: find the true value of these motors
+  public static int outOfTheWayEncoderCount = 1000000; //TODO: find the true value of these motors
+  public static int cargoLoadingEncoderCount = 1000000; //TODO: find the true value of these motors
+  public static int hatchLoadingEncoderCount = 1000000; //TODO: find the true value of these motors
+  public static int cargoEncoderCountOne = 1000000; //TODO: find the true value of these motors
+  public static int cargoEncoderCountTwo = 1000000; //TODO: find the true value of these motors
+  public static int hatchEncoderCountOne = 1000000; //TODO: find the true value of these motors
+  public static int hatchEncoderCountTwo = 1000000; //TODO: find the true value of these motors
+
  
 }
