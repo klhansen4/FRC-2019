@@ -31,6 +31,7 @@ public class RobotMap {
   public static int driverController = 0;
   public static int operatorController = 1;
 
+  public static int usbCamera = 1;
   // Climb Jack System Constants
   public static int climbJack_talon = 7;
   public static int ClimbJackFullyRetracted = 0;
