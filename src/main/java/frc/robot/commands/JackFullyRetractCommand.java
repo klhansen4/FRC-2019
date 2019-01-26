@@ -8,11 +8,18 @@
 package frc.robot.commands;
 
 import edu.wpi.first.wpilibj.command.Command;
+import frc.robot.RobotMap;
+import frc.robot.Robot;
+import frc.robot.subsystems.Climb_Jack;
+import com.ctre.phoenix.motorcontrol.*;
+import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
+
 
 public class JackFullyRetractCommand extends Command {
   public JackFullyRetractCommand() {
     // Use requires() here to declare subsystem dependencies
     // eg. requires(chassis);
+    requires(Robot.m_climb_jack);
   }
 
   // Called just before this Command runs the first time
