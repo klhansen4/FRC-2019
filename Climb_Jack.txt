@@ -8,7 +8,7 @@ in both directions (similar to elevator code from 2018)
 
 Step 2 
 List I/O for systems
-Inputs: controller buttons/joysticks, encoder
+Inputs: controller bumpers, encoder
 Outputs: climb motor, action of climb
 
 Step 3 
@@ -51,3 +51,16 @@ JackFullyRetractCommand
 if (climbJackFullyRetractButton is pressed once) and (encoder counts are > ClimbJackFullyRetracted) and
 (match time left  is < 30) then
 turn on climbJack_talon to retract jack all the way
+
+Error State Analysis
+Error states for either  when the jacks extend or retract
+encoder failure - emergency override unnder operator control, jog only
+jack motor - no recovery available
+extended jack caught on side of platform - manual: no recovery; automated: measure distance with
+ultrasonic sensor
+
+Step 7
+presented to syd 
+
+Step 8
+

@@ -8,6 +8,11 @@
 package frc.robot.commands;
 
 import edu.wpi.first.wpilibj.command.Command;
+import frc.robot.RobotMap;
+import frc.robot.Robot;
+import frc.robot.subsystems.Climb_Jack;
+import com.ctre.phoenix.motorcontrol.*;
+import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
 
 public class JackJogExtendCommand extends Command {
   public JackJogExtendCommand() {
@@ -23,6 +28,7 @@ public class JackJogExtendCommand extends Command {
   // Called repeatedly when this Command is scheduled to run
   @Override
   protected void execute() {
+  Robot.m_climb_jack.setTargetPosition(Robot.m_climb_jack.getTargetPosition() + RobotMap.climbJackRate) ;
   }
 
   // Make this return true when this Command no longer needs to run execute()
