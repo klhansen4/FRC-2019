@@ -27,8 +27,8 @@ private VideoSource usbCamera;
   protected void initialize() {
     
     server = CameraServer.getInstance();
-      server.setQuality(50);
-      LocalVariableDetection();
+     // server.setQuality(50);
+     // LocalVariableDetection();
       
   }
 
