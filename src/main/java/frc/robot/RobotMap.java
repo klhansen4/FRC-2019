@@ -66,6 +66,7 @@ public class RobotMap {
   public static int suctionArmDownButton = 1000000; //TODO: correct button value needed
   public static int cargoSuctionButton = 1000000; //TODO: correct button value needed
   public static int hatchSuctionButton = 1000000; //TODO: correct button value needed
+  public static int hazmatRate = 1000000; //TODO: find correct rate
 
  
 }

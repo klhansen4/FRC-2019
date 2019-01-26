@@ -16,7 +16,7 @@ import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
 
 import frc.robot.subsystems.Drive;
 import frc.robot.subsystems.Climb_Jack;
-
+import frc.robot.subsystems.Hazmat_Arm;
 /**
  * The VM is configured to automatically run this class, and to call the
  * functions corresponding to each mode, as described in the TimedRobot
@@ -29,6 +29,7 @@ public class Robot extends TimedRobot {
   public static OI m_oi;
   public static Drive m_drive;
   public static Climb_Jack m_climb_jack;
+  public static Hazmat_Arm m_hazmat_arm;
   Command m_autonomousCommand;
   SendableChooser<Command> m_chooser = new SendableChooser<>();
 
