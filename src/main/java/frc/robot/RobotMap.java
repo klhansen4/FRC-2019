@@ -31,4 +31,37 @@ public class RobotMap {
   public static int driverController = 0;
   public static int operatorController = 1;
 
+  public static int usbCamera = 1;
+  // Climb Jack System Constants
+  public static int climbJack_talon = 7;
+  public static int ClimbJackFullyRetracted = 0;
+  public static int climbJackMaxExtend = 21500; //not really lol TODO: figure out what  this number is
+  public static int climbJackJogRetractedLimit = 0;
+  public static int climbJackJogExtendedLimit = 21500; //not really lol TODO: figure out what  this number is
+  public static int climbJackJogExtendButton = 6; // right bumper
+  public static int climbJackJogRetractButton = 5; // left bumper
+  public static int climbJackFullyExtendButton = 3;   // button x 
+  public static int climbJackFullyRetractButton =  4; // button y
+  public static int climbJackLimitSwitchExtendInput = 1;
+  public static int climbJackLimitSwitchRetractInput = 2;
+  public static double climbJackSpeed = 10.0;
+  public static int climbJackRate = 200;
+  public static int climbJackIsExtendedThreshold = 6000;
+
+  public final static int PID_PRIMARY = 0;
+  public final static int kTimeoutMs = 30;
+
+  //suction arm constants
+  public static int suctionArm_Talon = 8; //TODO: find the true value of these motors
+  //define solenoids here
+  public static int suctionArmStartingEncoderCount = 1000000; //TODO: find the true value of these motors
+  public static int outOfTheWayEncoderCount = 1000000; //TODO: find the true value of these motors
+  public static int cargoLoadingEncoderCount = 1000000; //TODO: find the true value of these motors
+  public static int hatchLoadingEncoderCount = 1000000; //TODO: find the true value of these motors
+  public static int cargoEncoderCountOne = 1000000; //TODO: find the true value of these motors
+  public static int cargoEncoderCountTwo = 1000000; //TODO: find the true value of these motors
+  public static int hatchEncoderCountOne = 1000000; //TODO: find the true value of these motors
+  public static int hatchEncoderCountTwo = 1000000; //TODO: find the true value of these motors
+
+ 
 }

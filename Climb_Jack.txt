@@ -7,4 +7,60 @@ The Climb jack has a single motor with an encoder and rotates
 in both directions (similar to elevator code from 2018)
 
 Step 2 
+List I/O for systems
+Inputs: controller bumpers, encoder
+Outputs: climb motor, action of climb
+
+Step 3 
+complete 
+
+Step 4
+complete
+
+Step 5
+JackJogExtendCommand
+JackJogRetractCommand
+jackFullyExtendCommand
+JackFullyRetractCommand
+
+Step 6
+assumptions:
+	enable climb in last 30 seconds of the match, you can have a timer as well 
+	the sign convenction as follows
+	when jack is extending robot is going up 
+	when jack is retracting robot is going down (if not on platform)
+	when jack is fully extended JackFullyExtend encoder counts = ClimbJackMaxExtend
+	when jack is fully retracted JackFullyRetract encoder  counts = ClimbJackFullyRetracted
+
+JackJogExtendCommand
+if (climbJackJogExtendButton is constantly pressed) and (encoder counts are < climbJackJogExtendedLimit) and
+(match time left is < 30) then
+turn on climbJack_talon to extend jack
+
+JackJogRetractCommand
+if (climbJackJogRetractButton is constantly pressed) and (encoder counts are > climbJackJogRetractedLimit) and
+(match time left is < 30) then
+turn on climbJack_talon to retract jack
+
+JackFullyExtendCommand
+if (climbJackFullyExtendButton is pressed once) and (encoder counts are < climbJackMaxExtend) and 
+(match time left is < 30) then
+turn on climbJack_talon to extend jack all the way
+
+JackFullyRetractCommand
+if (climbJackFullyRetractButton is pressed once) and (encoder counts are > ClimbJackFullyRetracted) and
+(match time left  is < 30) then
+turn on climbJack_talon to retract jack all the way
+
+Error State Analysis
+Error states for either  when the jacks extend or retract
+encoder failure - emergency override unnder operator control, jog only
+jack motor - no recovery available
+extended jack caught on side of platform - manual: no recovery; automated: measure distance with
+ultrasonic sensor
+
+Step 7
+presented to syd 
+
+Step 8
 

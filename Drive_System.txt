@@ -21,7 +21,11 @@ driveCommandAuton
   distance =  m
   speed = m/s
   turning = radians
-  
+  driveCommandSimple
+  driveForward = 1 
+  driveBackwards = -1
+  turnRight = 1
+  turnLeft = -1 
   operator interfaces are Joystick and Auton 
   subsystem is drive
   
@@ -39,6 +43,8 @@ driveCommandAuton
   presented psuedo code to Katie and Sydney
 
   step 8
- 
+ 1. in terminal : type git fetch then enter, git status then enter, git pull then enter
+ 2. connect the wifi of the robot with the computer 
+ 3. 
   
   

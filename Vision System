@@ -12,7 +12,7 @@ Step 1
     A. The adjustment of the robot will allow the driver to be centered for placement of cargo and hatch cover.
   
 Step 2
-Input:  usb camera, joystick,
+Input:  usb camera, joystick, gyroscope 
 Output: reflecting tape, action of auto-assist, screen ( locks on the target, modify the camera feed with graphics), sensor light, 
 Step 3 --  completed review 
 
@@ -41,8 +41,14 @@ if deltay <0 then
 let deltay = y0-y1
 let targetx = deltax + x1
 let targety = deltay + y1
-call drive subsystem
-
+let errorangle = (camera FOV / horizontal resolution) * (targetx - center of screen)
+read joystick for speed
+let errorangle_radians = 2pi / 360 * errorangle
+call driveCommandSimple turning = errorangle_radians 
+turning with the PID, changes the radians 
+PID is a plug in system that we plug in to direct the robot so theta is zero
+PID input is set point and gyro. The output is driveCommandSimple. Consists of Kp(proportional) Ki(constantly multiples a number by the current error) Kd(change in error, remembers what the last error was) ( constants ). Turning speed comes out of PID 
+ 
 
 
  

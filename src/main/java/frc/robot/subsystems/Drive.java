@@ -90,9 +90,9 @@ public class Drive extends Subsystem {
 
 	}
 	public void driveDirection(float FRSpeed, float turningSpeed, float LRSpeed) {
-		m_drive.arcadeDrive(FRSpeed, turningSpeed);
+		m_drive.arcadeDrive(turningSpeed, FRSpeed);
 	}
 	public void driveDirection(float FRSpeed, float turningSpeed) {
-		m_drive.arcadeDrive(FRSpeed, turningSpeed);
+		m_drive.arcadeDrive( turningSpeed, FRSpeed);
 	}
 }
