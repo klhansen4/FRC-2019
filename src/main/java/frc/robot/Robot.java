@@ -39,11 +39,11 @@ public class Robot extends TimedRobot {
    */
   @Override
   public void robotInit() {
-    m_oi = new OI();
+   
     m_drive = new Drive();
     m_climb_jack = new Climb_Jack();
     m_hazmat_arm = new Hazmat_Arm();
-
+    m_oi = new OI();  //OI must be done after other instantiations
     // chooser.addOption("My Auto", new MyAutoCommand());
     SmartDashboard.putData("Auto mode", m_chooser);
   }

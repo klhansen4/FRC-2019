@@ -22,7 +22,7 @@ import com.ctre.phoenix.motorcontrol.*;
  * Add your docs here.
  */
 public class Hazmat_Arm extends Subsystem {
-  public static WPI_TalonSRX m_climbJack_talon = new WPI_TalonSRX (RobotMap.suctionArm_Talon);
+  public static WPI_TalonSRX m_hazmat_arm_talon = new WPI_TalonSRX (RobotMap.suctionArm_Talon);
   // Put methods for controlling this subsystem
   // here. Call these from Commands.
 
@@ -44,7 +44,7 @@ public class Hazmat_Arm extends Subsystem {
     
   
     if (m_limitSwitchExtended.get() == false) {
-    m_climbJack_talon.getSensorCollection().setQuadraturePosition(0,0);
+      m_hazmat_arm_talon.getSensorCollection().setQuadraturePosition(0,0);
     }
     //SmartDashboard.putBoolean("ElevatorLimitSwitch", m_limitSwitchElevator.get());
     SmartDashboard.putNumber("ClimbJackEncoderCounts",  getActualPosition());
@@ -64,7 +64,7 @@ public class Hazmat_Arm extends Subsystem {
     if (TargetPosition > RobotMap.climbJackMaxExtend){
       TargetPosition = RobotMap.climbJackMaxExtend;
     }
-    m_climbJack_talon.set(ControlMode.Position, TargetPosition);
+    m_hazmat_arm_talon.set(ControlMode.Position, TargetPosition);
       m_lastTargetPosition = TargetPosition;
   }
   public int getTargetPosition() {
@@ -72,6 +72,6 @@ public class Hazmat_Arm extends Subsystem {
     return m_lastTargetPosition;
   }
   public int getActualPosition() {
-    return RobotMap.suctionArm_Talon.getSensorCollection().getQuadraturePosition();
+    return m_hazmat_arm_talon.getSensorCollection().getQuadraturePosition();
   }
 }
